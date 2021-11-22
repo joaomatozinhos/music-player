@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player Music</title>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/01d2899e28.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div id="capa-musica"></div>
+        <div id="musica-artista">
+          <p id="nome-musica"></p>
+          <p id="nome-artista"></p>
+        </div>
+        <div id="player">
+          <div id="box-musica"></div>
+          <div id="progress">
+            <span id="MinutesSecondsLive">00:00</span>
+            <input
+              type="range"
+              id="input-progress"
+              step="1"
+              max="100"
+              min="0"
+            />
+            <span id="MinutesSeconds">00:00</span>
+          </div>
+          <div id="buttons">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              style="fill: rgb(230, 230, 230); transform: ; msfilter: "
+              id="previousMusic"
+            >
+              <path
+                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+              ></path>
+              <path d="m8 16 5-4-5-4zm5-4v4h2V8h-2z"></path>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              style="fill: rgb(230, 230, 230); transform: ; msfilter: "
+              id="backTime"
+            >
+              <path
+                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+              ></path>
+              <path d="m13 16 5-4-5-4zm-6 0 5-4-5-4z"></path>
+            </svg>
+            <i class="far fa-play-circle" id="play"></i>
+            <i class="far fa-pause-circle" id="pause"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              style="fill: rgb(230, 230, 230); transform: ; msfilter: "
+              id="advanceTime"
+            >
+              <path
+                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+              ></path>
+              <path d="m13 16 5-4-5-4zm-6 0 5-4-5-4z"></path>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              style="fill: rgb(230, 230, 230); transform: ; msfilter: "
+              id="nextMusic"
+            >
+              <path
+                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+              ></path>
+              <path d="m8 16 5-4-5-4zm5-4v4h2V8h-2z"></path>
+            </svg>
+          </div>
+        </div>
+        <div id="volume">
+          <i class="fas fa-volume-up" id="sound" onclick="mute()"></i>
+          <!-- <i class="fas fa-volume-mute"></i>
+          <i class="fas fa-volume-down"></i> -->
+          <span>
+            <input type="range" id="input-volume" step="5" max="100" min="0" />
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
