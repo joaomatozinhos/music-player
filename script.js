@@ -30,16 +30,28 @@ let tracks = [
     nome: 'Um Pedido',
     artista: 'Hungria Hip Hop',
     musica: 'assets/music/umpedido-hungria.mp3'
+  },
+  {
+    id: 1,
+    capa: 'assets/img/capa-imprevisivel.jpg',
+    nome: 'Imprevisível',
+    artista: 'Tribo da Periferia',
+    musica: 'assets/music/imprevisivel-tribodaperiferia.mp3'
+  },
+  {
+    id: 2,
+    capa: 'assets/img/capa-gratidao.jpg',
+    nome: 'Gratidão',
+    artista: 'L7NNON',
+    musica: 'assets/music/gratidao-l7nnon.mp3'
   }
 ]
 
-let firstMusic = tracks[0]
-
-function playFirstMusic() {
-  coverMusic.innerHTML = `<img src="${firstMusic.capa}" alt="Capa da música" />`
-  nameMusic.innerHTML = `${firstMusic.nome}`
-  nameArtist.innerHTML = `${firstMusic.artista}`
-  boxMusic.innerHTML = `<audio src="${firstMusic.musica}" type="audio/mp3" id="music"></audio>`
+function playMusic(id) {
+  coverMusic.innerHTML = `<img src="${tracks[id].capa}" alt="Capa da música" />`
+  nameMusic.innerHTML = `${tracks[id].nome}`
+  nameArtist.innerHTML = `${tracks[id].artista}`
+  boxMusic.innerHTML = `<audio src="${tracks[id].musica}" type="audio/mp3" id="music"></audio>`
 }
 
 function play() {
@@ -141,11 +153,26 @@ function mute() {
   }
 }
 
-function previousMusic() {}
+let musicID = 0
 
-function nextMusic() {}
+function nextMusic() {
+  musicID++
+
+  if (musicID >= tracks.length) {
+    musicID = 0
+  }
+
+  playMusic(musicID)
+  play()
+}
+
+function previousMusic() {
+  musicID--
+  playMusic(musicID)
+  play()
+}
 
 window.onload = () => {
-  playFirstMusic()
+  playMusic(0)
   music.volume = 0.5
 }
