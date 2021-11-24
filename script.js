@@ -23,6 +23,7 @@ btnAdvTime.addEventListener('click', advanceTime)
 btnNextMusic.addEventListener('click', nextMusic)
 inputVolume.addEventListener('input', changeVolume)
 
+// Array com as músicas disponíveis
 let tracks = [
   {
     id: 0,
@@ -47,13 +48,15 @@ let tracks = [
   }
 ]
 
-function playMusic(id) {
+// Inserir música no HTML
+function insertMusic(id) {
   coverMusic.innerHTML = `<img src="${tracks[id].capa}" alt="Capa da música" />`
   nameMusic.innerHTML = `${tracks[id].nome}`
   nameArtist.innerHTML = `${tracks[id].artista}`
   boxMusic.innerHTML = `<audio src="${tracks[id].musica}" type="audio/mp3" id="music"></audio>`
 }
 
+// Tocar música
 function play() {
   let music = document.getElementById('music')
   music.play()
@@ -62,6 +65,7 @@ function play() {
   btnPause.style.display = 'block'
 }
 
+// Pausar música
 function pause() {
   music.pause()
 
@@ -69,14 +73,17 @@ function pause() {
   btnPlay.style.display = 'block'
 }
 
+// Voltar 10s
 function backTime() {
   music.currentTime -= 10
 }
 
+// Avançar 10s
 function advanceTime() {
   music.currentTime += 10
 }
 
+// Controle do tempo do audio
 function convertTimeAudio() {
   let Minutes = Math.floor(music.duration / 60)
   let Seconds = Math.floor(music.duration % 60)
@@ -115,6 +122,7 @@ setInterval(progressMusic, 100)
 
 let soundMuted = false
 
+// Controle do volume
 function changeVolume() {
   music.volume = inputVolume.value / 100
 
@@ -136,6 +144,7 @@ function changeVolume() {
   }
 }
 
+// Mutar
 let UserVol
 function mute() {
   UserVol = music.volume * 100
@@ -153,6 +162,7 @@ function mute() {
   }
 }
 
+// Pular próxima música
 let musicID = 0
 
 function nextMusic() {
@@ -162,17 +172,19 @@ function nextMusic() {
     musicID = 0
   }
 
-  playMusic(musicID)
+  insertMusic(musicID)
   play()
 }
 
+// Voltar música anterior
 function previousMusic() {
   musicID--
-  playMusic(musicID)
+  insertMusic(musicID)
   play()
 }
 
+// Executar função assim que carregar a página
 window.onload = () => {
-  playMusic(0)
+  insertMusic(0)
   music.volume = 0.5
 }
